@@ -1,0 +1,525 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AMTA Lexicography Assistant - Dr. Waleed Mandour</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* --- CSS VARIABLES & RESET --- */
+        :root {
+            --primary: #1a237e;       /* Academic Navy */
+            --accent: #059669;       /* Success Teal */
+            --bg-light: #f8f9fa;     /* Light Grey */
+            --text-dark: #2c3e50;
+            --text-light: #546e7a;
+            --transition: all 0.3s ease;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            line-height: 1.6;
+            color: var(--text-dark);
+            margin: 0;
+            padding: 0;
+            background-color: #fff;
+        }
+
+        body.arabic {
+            font-family: 'Cairo', 'Segoe UI', Tahoma, sans-serif;
+            direction: rtl;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        /* Language Toggle */
+        .language-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+            background: rgba(26, 35, 126, 0.9);
+            border-radius: 30px;
+            padding: 8px 15px;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        
+        .language-toggle button {
+            background: transparent;
+            border: none;
+            color: white;
+            font-weight: 600;
+            cursor: pointer;
+            padding: 5px 10px;
+            border-radius: 20px;
+            transition: var(--transition);
+        }
+        
+        .language-toggle button.active {
+            background: var(--accent);
+        }
+
+        /* --- HERO SECTION --- */
+        .hero {
+            text-align: center;
+            padding: 60px 20px;
+            background: linear-gradient(135deg, #f5f7fa 0%, #eef2f3 100%);
+            border-radius: 12px;
+            margin-bottom: 40px;
+            border-bottom: 4px solid var(--primary);
+        }
+
+        .hero h1 {
+            font-size: 36px;
+            color: var(--primary);
+            margin-bottom: 10px;
+            font-weight: 800;
+            letter-spacing: -0.5px;
+        }
+
+        .hero .arabic-subtitle {
+            font-family: 'Cairo', 'Segoe UI', Tahoma, sans-serif;
+            font-size: 20px;
+            color: var(--accent);
+            margin-bottom: 20px;
+            font-weight: 600;
+        }
+
+        .hero p {
+            font-size: 18px;
+            color: var(--text-light);
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        /* --- DATA USAGE NOTICE (NEW ADDITION) --- */
+        .data-notice {
+            background-color: #fff3cd; 
+            border-left: 5px solid #ffc107; 
+            padding: 15px; 
+            margin: 30px 0;
+            text-align: left;
+            border-radius: 4px;
+        }
+        .data-notice h4 {
+            color: #856404;
+            margin-top: 0;
+            margin-bottom: 5px;
+        }
+        .data-notice a {
+            font-weight: bold;
+            color: #007bff;
+        }
+        
+        /* --- WORKFLOW SECTION --- */
+        .workflow-section {
+            margin: 50px 0;
+            text-align: center;
+        }
+
+        .workflow-title {
+            color: var(--primary);
+            margin-bottom: 30px;
+            font-size: 28px;
+        }
+
+        .workflow-image {
+            max-width: 100%;
+            border-radius: 8px;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+            margin-bottom: 30px;
+            border: 1px solid #e0e0e0;
+        }
+
+        .workflow-steps {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin-top: 30px;
+        }
+
+        .workflow-step {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+            border-left: 4px solid var(--accent);
+        }
+
+        body.arabic .workflow-step {
+            border-left: none;
+            border-right: 4px solid var(--accent);
+        }
+
+        .workflow-step h4 {
+            color: var(--primary);
+            margin-bottom: 10px;
+        }
+
+        .workflow-step p {
+            color: var(--text-light);
+            font-size: 0.9em;
+        }
+
+        /* --- FEATURES GRID --- */
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+            margin-bottom: 50px;
+        }
+
+        .card {
+            background: #fff;
+            padding: 25px;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+            border: 1px solid #eee;
+            transition: transform 0.2s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            border-color: var(--primary);
+        }
+
+        .card-icon {
+            font-size: 32px;
+            margin-bottom: 15px;
+            display: block;
+        }
+
+        .card h3 {
+            color: var(--primary);
+            margin-top: 0;
+            margin-bottom: 10px;
+        }
+
+        /* --- AUDIENCE BENEFITS --- */
+        .audience-section {
+            background-color: var(--bg-light);
+            padding: 40px;
+            border-radius: 12px;
+            margin-bottom: 40px;
+        }
+
+        .audience-title {
+            text-align: center;
+            margin-bottom: 30px;
+            color: var(--text-dark);
+            font-size: 24px;
+        }
+
+        .benefit-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .benefit-list li {
+            padding: 10px 0;
+            border-bottom: 1px solid #e0e0e0;
+            display: flex;
+            align-items: start;
+        }
+
+        body.arabic .benefit-list li {
+            flex-direction: row-reverse;
+        }
+
+        .benefit-list li:last-child {
+            border-bottom: none;
+        }
+
+        .check {
+            color: var(--accent);
+            margin-right: 12px;
+            font-weight: bold;
+            font-size: 18px;
+        }
+
+        body.arabic .check {
+            margin-right: 0;
+            margin-left: 12px;
+        }
+
+        /* --- CTA FOOTER --- */
+        .cta {
+            text-align: center;
+            padding: 30px;
+            border-top: 1px solid #eee;
+        }
+
+        .cta-text {
+            font-weight: 600;
+            color: var(--text-light);
+            margin-bottom: 5px;
+        }
+
+        /* Language-specific content */
+        .lang-en {
+            display: block;
+        }
+        
+        .lang-ar {
+            display: none;
+        }
+        
+        body.arabic .lang-en {
+            display: none;
+        }
+        
+        body.arabic .lang-ar {
+            display: block;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .workflow-steps {
+                grid-template-columns: 1fr;
+            }
+            
+            .grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .hero h1 {
+                font-size: 28px;
+            }
+            
+            .hero p {
+                font-size: 16px;
+            }
+        }
+    </style>
+</head>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-WW4M0NCF1V"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-WW4M0NCF1V');
+</script>
+<body>
+    <div class="container">
+        <div class="language-toggle">
+            <button id="lang-en" class="active">English</button>
+            <button id="lang-ar">العربية</button>
+        </div>
+
+        <div class="hero">
+            <h1 class="lang-en">AMTA Lexicography Assistant</h1>
+            <h1 class="lang-ar">مساعد AMTA للمعجميات</h1>
+            
+            <div class="arabic-subtitle lang-en">Intelligent Lexicography Platform</div>
+            <div class="arabic-subtitle lang-ar">منصة صناعة المعاجم الذكية</div>
+            
+            <p class="lang-en">An advanced Google Workspace Add-on that leverages Generative AI and Academic Corpora to automate the creation of specialized dictionaries, ensuring academic validity and linguistic precision.</p>
+            <p class="lang-ar">إضافة متقدمة لمساحة عمل جوجل تستخدم الذكاء الاصطناعي التوليدي والمدونات الأكاديمية لأتمتة إنشاء القواميس المتخصصة، مع ضمان الصلاحية الأكاديمية والدقة اللغوية.</p>
+
+            <div class="data-notice">
+                <h4 class="lang-en">Important Notice Regarding Google Data:</h4>
+                <h4 class="lang-ar">ملاحظة هامة بشأن بيانات جوجل:</h4>
+                
+                <p class="lang-en">The AMTA Lexicography Assistant requires access to your Google Sheets data to perform its core functions (i.e., reading terms for analysis and writing back dictionary entries). We only access data necessary for the app's features.</p>
+                <p class="lang-ar">يتطلب مساعد AMTA الوصول إلى بيانات جداول جوجل الخاصة بك لأداء وظائفه الأساسية (مثل، قراءة المصطلحات للتحليل والكتابة مرة أخرى في إدخالات القاموس). نحن نصل فقط إلى البيانات الضرورية لميزات التطبيق.</p>
+                
+                <p class="lang-en">For detailed information on data handling, please read our <a href="https://waleedmandour.org/privacy.html"><strong>Privacy Policy</strong></a>.</p>
+                <p class="lang-ar">للحصول على معلومات مفصلة حول التعامل مع البيانات، يرجى قراءة <a href="https://waleedmandour.org/privacy.html"><strong>سياسة الخصوصية</strong></a>.</p>
+            </div>
+            </div>
+
+        <div class="workflow-section">
+            <h2 class="workflow-title lang-en">How It Works</h2>
+            <h2 class="workflow-title lang-ar">كيف يعمل النظام</h2>
+            
+            <img src="https://lh3.googleusercontent.com/_zZ6UGGgrqP_yTeWCg-CXIx2SfEdFJ1XbueZsbY2Ve5boU4sby5rvnkKKK0SMX-wTjIL9b4rRwKfTvY8IFL23cc" class="workflow-image" alt="Application Workflow Diagram">
+            
+            <div class="workflow-steps">
+                <div class="workflow-step">
+                    <h4 class="lang-en">Input Phase</h4>
+                    <h4 class="lang-ar">مرحلة الإدخال</h4>
+                    <p class="lang-en">Domain input processed through API orchestration and semantic search</p>
+                    <p class="lang-ar">معالجة المدخلات المجالية عبر تنسيق واجهات البرمجة والبحث الدلالي</p>
+                </div>
+                <div class="workflow-step">
+                    <h4 class="lang-en">Analysis & RAG</h4>
+                    <h4 class="lang-ar">التحليل والتوليد المعزز</h4>
+                    <p class="lang-en">AI-powered analysis with corpus statistics and retrieval-augmented generation</p>
+                    <p class="lang-ar">تحليل مدعوم بالذكاء الاصطناعي مع إحصائيات المدونات والتوليد المعزز بالاسترجاع</p>
+                </div>
+                <div class="workflow-step">
+                    <h4 class="lang-en">Output Phase</h4>
+                    <h4 class="lang-ar">مرحلة الإخراج</h4>
+                    <p class="lang-en">Structured outputs in XML/JSON formats compatible with Lexonomy</p>
+                    <p class="lang-ar">مخرجات منظمة بتنسيقات XML/JSON متوافقة مع Lexonomy</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="grid">
+            <div class="card">
+                <span class="card-icon">🧠</span>
+                <h3 class="lang-en">AI-Powered Definitions</h3>
+                <h3 class="lang-ar">تعريفات مدعومة بالذكاء الاصطناعي</h3>
+                <p class="lang-en">Utilizes RAG (Retrieval-Augmented Generation) to draft precise technical definitions, translations, and context-aware examples by verifying against real academic papers.</p>
+                <p class="lang-ar">يستخدم التوليد المعزز بالاسترجاع لصياغة تعاريف تقنية دقيقة وترجمات وأمثلة واعية بالسياق من خلال التحقق من الأوراق الأكاديمية الحقيقية.</p>
+            </div>
+            <div class="card">
+                <span class="card-icon">📊</span>
+                <h3 class="lang-en">Corpus Statistics</h3>
+                <h3 class="lang-ar">إحصائيات المدونات النصية</h3>
+                <p class="lang-en">Automatically calculates <strong>Keyness Scores</strong>, Domain Frequency, and Reference Frequency (vs. BAWE Corpus) to determine term significance.</p>
+                <p class="lang-ar">يحسب تلقائياً <strong>درجات الأهمية</strong>، التكرار المجالي، والتكرار المرجعي (مقارنة بمدونة BAWE) لتحديد أهمية المصطلحات.</p>
+            </div>
+            <div class="card">
+                <span class="card-icon">⚙️</span>
+                <h3 class="lang-en">Lexonomy Export</h3>
+                <h3 class="lang-ar">تصدير لمنصة Lexonomy ليكسونومي</h3>
+                <p class="lang-en">Seamlessly transforms your data into structured XML compatible with <strong>Lexonomy</strong> and other professional dictionary writing systems (DWS).</p>
+                <p class="lang-ar">يحول بياناتك بسلاسة إلى XML منظم متوافق مع <strong>ليكسونومي Lexonomy</strong> وأنظمة كتابة القواميس الاحترافية الأخرى.</p>
+            </div>
+        </div>
+
+        <div style="text-align: center; margin: 40px 0;">
+            <img src="https://lh3.googleusercontent.com/68Kc5I5bwm3-PQNnakeqYxUjEFW7PkC5wzenOtmqEq9OI2wqQrJOQKbiBvQBGEmYQ5rKmYWAEFs-7Op-uKpjbO0" 
+                alt="AMTA Lexicography Assistant Workflow" 
+                style="max-width: 100%; border-radius: 8px; box-shadow: 0 8px 25px rgba(0,0,0,0.1); border: 1px solid #e0e0e0;">
+        </div>
+
+        <div class="audience-section">
+            <h2 class="audience-title lang-en">Why use AMTA Assistant?</h2>
+            <h2 class="audience-title lang-ar">لماذا تستخدم مساعد إنشاء المعاجم الذكية؟</h2>
+            
+            <div class="grid">
+                <div>
+                    <h3 style="color: #1a237e; border-bottom: 2px solid #059669; padding-bottom: 10px; display:inline-block;" class="lang-en">For Lexicographers</h3>
+                    <h3 style="color: #1a237e; border-bottom: 2px solid #059669; padding-bottom: 10px; display:inline-block;" class="lang-ar">للمعجميين</h3>
+                    <ul class="benefit-list">
+                        <li>
+                            <span class="check">✓</span> 
+                            <div>
+                                <strong class="lang-en">Automate Drudgery:</strong> 
+                                <span class="lang-en">Skip manual term extraction. Get suggested terms from semantic search instantly.</span>
+                                <strong class="lang-ar">أتمتة المهام الروتينية:</strong> 
+                                <span class="lang-ar">تخطى استخراج المصطلحات يدوياً. احصل على مصطلحات مقترحة من البحث الدلالي فوراً.</span>
+                            </div>
+                        </li>
+                        <li>
+                            <span class="check">✓</span> 
+                            <div>
+                                <strong class="lang-en">Data-Driven Decisions:</strong> 
+                                <span class="lang-en">Use statistical Keyness scores to decide which words belong in your dictionary.</span>
+                                <strong class="lang-ar">قرارات قائمة على البيانات:</strong> 
+                                <span class="lang-ar">استخدم درجات الأهمية الإحصائية لتقرر أي الكلمات تنتمي إلى قاموسك.</span>
+                            </div>
+                        </li>
+                        <li>
+                            <span class="check">✓</span> 
+                            <div>
+                                <strong class="lang-en">Structured Output:</strong> 
+                                <span class="lang-en">Export clean XML without needing to code tags manually.</span>
+                                <strong class="lang-ar">مخرجات منظمة:</strong> 
+                                <span class="lang-ar">صدر XML نظيف دون الحاجة لترميز الوسوم يدوياً.</span>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h3 style="color: #1a237e; border-bottom: 2px solid #059669; padding-bottom: 10px; display:inline-block;" class="lang-en">For Educators</h3>
+                    <h3 style="color: #1a237e; border-bottom: 2px solid #059669; padding-bottom: 10px; display:inline-block;" class="lang-ar">للمعلمين</h3>
+                    <ul class="benefit-list">
+                        <li>
+                            <span class="check">✓</span> 
+                            <div>
+                                <strong class="lang-en">Instant Glossaries:</strong> 
+                                <span class="lang-en">Create course-specific glossaries for students in minutes, not days.</span>
+                                <strong class="lang-ar">معاجم فورية:</strong> 
+                                <span class="lang-ar">قم بصناعة مسارد خاصة بالمقرر للطلاب في دقائق، وليس أيام.</span>
+                            </div>
+                        </li>
+                        <li>
+                            <span class="check">✓</span> 
+                            <div>
+                                <strong class="lang-en">Authentic Examples:</strong> 
+                                <span class="lang-en">Extract real-world usage examples directly from peer-reviewed papers.</span>
+                                <strong class="lang-ar">أمثلة أصلية:</strong> 
+                                <span class="lang-ar">استخرج أمثلة استخدام حقيقية مباشرة من الأوراق المحكمة.</span>
+                            </div>
+                        </li>
+                        <li>
+                            <span class="check">✓</span> 
+                            <div>
+                                <strong class="lang-en">Bilingual Support:</strong> 
+                                <span class="lang-en">Automatically generate accurate translations for multilingual definitions.</span>
+                                <strong class="lang-ar">دعم ثنائي اللغة:</strong> 
+                                <span class="lang-ar">كتابة ترجمات دقيقة تلقائياً للتعريفات بلغات متعددة.</span>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div style="text-align: center; margin-bottom: 40px;">
+            <h3 style="color: #546e7a; text-transform: uppercase; font-size: 14px; letter-spacing: 1px;" class="lang-en">Powered By Academic APIs</h3>
+            <h3 style="color: #546e7a; text-transform: uppercase; font-size: 14px; letter-spacing: 1px;" class="lang-ar">مدعوم بواجهات برمجة تطبيقات أكاديمية</h3>
+            <div style="display: flex; justify-content: center; gap: 20px; font-weight: bold; color: #78909c; margin-top: 10px;">
+                <span class="lang-en">Gemini AI</span>
+                <span class="lang-ar">Gemini AI</span>
+                • 
+                <span class="lang-en">Semantic Scholar</span>
+                <span class="lang-ar">Semantic Scholar</span>
+                • 
+                <span class="lang-en">CORE API</span>
+                <span class="lang-ar">CORE API</span>
+                • 
+                <span class="lang-en">SerpApi</span>
+                <span class="lang-ar">Serp API</span>
+            </div>
+        </div>
+
+        <div class="cta">
+            <div class="cta-text lang-en">Ready to build your dictionary?</div>
+            <div class="cta-text lang-ar">مستعد لبناء قاموسك؟</div>
+            <div style="font-size: 0.9em; color: #999;" class="lang-en">Launch the add-on from the Extensions menu in Google Sheets.</div>
+            <div style="font-size: 0.9em; color: #999;" class="lang-ar">شغّل الإضافة من قائمة الإضافات في جداول جوجل.</div>
+        </div>
+
+        <div style="text-align: center; margin-top: 40px; padding-top: 20px; border-top: 1px solid #eee; color: #999; font-size: 0.9em;">
+            <span class="lang-en">© 2025 Waleed Mandour</span>
+            <span class="lang-ar">© 2025 وليد مندور</span>
+            <span class="lang-en">w.abumandour@squ.edu.om</span>
+            <span class="lang-ar">w.abumandour@squ.edu.om</span>
+        </div>
+    </div>
+
+    <script>
+        // Language toggle functionality
+        document.getElementById('lang-en').addEventListener('click', function() {
+            document.body.classList.remove('arabic');
+            document.getElementById('lang-en').classList.add('active');
+            document.getElementById('lang-ar').classList.remove('active');
+        });
+        
+        document.getElementById('lang-ar').addEventListener('click', function() {
+            document.body.classList.add('arabic');
+            document.getElementById('lang-ar').classList.add('active');
+            document.getElementById('lang-en').classList.remove('active');
+        });
+    </script>
+</body>
+</html>
