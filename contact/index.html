@@ -365,7 +365,7 @@
             background-color: #e6f2f9;
             padding: 40px;
             border-radius: 12px;
-            margin-bottom: 40px;
+            margin-bottom: 60px;
             box-shadow: var(--shadow);
         }
         
@@ -376,13 +376,72 @@
             margin-bottom: 25px;
         }
         
-        .form-placeholder {
-            border: 1px dashed var(--secondary);
-            padding: 30px;
-            text-align: center;
+        /* Form Styles */
+        .contact-form {
             background-color: var(--white);
+            padding: 30px;
             border-radius: 8px;
-            color: var(--dark);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: var(--primary);
+        }
+        
+        .form-control {
+            width: 100%;
+            padding: 12px 15px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 1em;
+            transition: var(--transition);
+        }
+        
+        .form-control:focus {
+            outline: none;
+            border-color: var(--secondary);
+            box-shadow: 0 0 0 2px rgba(32, 178, 170, 0.2);
+        }
+        
+        select.form-control {
+            cursor: pointer;
+        }
+        
+        textarea.form-control {
+            min-height: 150px;
+            resize: vertical;
+        }
+        
+        .form-note {
+            font-size: 0.9em;
+            color: var(--gray);
+            margin-top: 5px;
+        }
+        
+        .submit-btn {
+            background-color: var(--secondary);
+            color: white;
+            border: none;
+            padding: 12px 30px;
+            font-size: 1.1em;
+            font-weight: 600;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: var(--transition);
+            display: block;
+            margin: 30px auto 0;
+        }
+        
+        .submit-btn:hover {
+            background-color: var(--primary);
+            transform: translateY(-2px);
         }
         
         /* Language-specific content */
@@ -400,6 +459,176 @@
         
         body.arabic .lang-ar {
             display: block;
+        }
+        
+        /* Footer Styles */
+        footer {
+            background-color: var(--primary);
+            color: var(--white);
+            padding: 50px 0 25px;
+        }
+        
+        .footer-content {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+        
+        .footer-section {
+            flex: 1;
+            min-width: 250px;
+        }
+        
+        .footer-section h3 {
+            color: var(--secondary);
+            margin-bottom: 20px;
+            font-size: 1.3em;
+            position: relative;
+            padding-bottom: 10px;
+        }
+        
+        .footer-section h3::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 40px;
+            height: 2px;
+            background-color: var(--secondary);
+        }
+        
+        body.arabic .footer-section h3::after {
+            left: auto;
+            right: 0;
+        }
+        
+        .footer-section p {
+            line-height: 1.6;
+            margin-bottom: 15px;
+            color: rgba(255, 255, 255, 0.8);
+        }
+        
+        .footer-links {
+            list-style: none;
+        }
+        
+        .footer-links li {
+            margin-bottom: 10px;
+        }
+        
+        .footer-links a {
+            color: rgba(255, 255, 255, 0.8);
+            text-decoration: none;
+            transition: var(--transition);
+            display: flex;
+            align-items: center;
+        }
+        
+        .footer-links a i {
+            margin-right: 8px;
+            color: var(--secondary);
+            width: 20px;
+            text-align: center;
+        }
+        
+        body.arabic .footer-links a i {
+            margin-right: 0;
+            margin-left: 8px;
+        }
+        
+        .footer-links a:hover {
+            color: var(--secondary);
+            transform: translateX(5px);
+        }
+        
+        body.arabic .footer-links a:hover {
+            transform: translateX(-5px);
+        }
+        
+        .contact-info {
+            list-style: none;
+        }
+        
+        .contact-info li {
+            margin-bottom: 15px;
+            display: flex;
+            align-items: flex-start;
+        }
+        
+        .contact-info i {
+            color: var(--secondary);
+            margin-right: 10px;
+            margin-top: 3px;
+            width: 20px;
+            text-align: center;
+        }
+        
+        body.arabic .contact-info i {
+            margin-right: 0;
+            margin-left: 10px;
+        }
+        
+        .contact-info span {
+            color: rgba(255, 255, 255, 0.8);
+            line-height: 1.5;
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+        
+        .social-links a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            color: var(--white);
+            text-decoration: none;
+            transition: var(--transition);
+        }
+        
+        .social-links a:hover {
+            background-color: var(--secondary);
+            transform: translateY(-3px);
+        }
+        
+        .footer-bottom {
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding-top: 25px;
+            text-align: center;
+        }
+        
+        .footer-bottom p {
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 0.9em;
+        }
+        
+        .institutional-logos {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin-top: 20px;
+            flex-wrap: wrap;
+        }
+        
+        .logo-placeholder {
+            width: 120px;
+            height: 60px;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 5px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: rgba(255, 255, 255, 0.5);
+            font-size: 0.8em;
+            text-align: center;
         }
         
         /* Responsive Design */
@@ -452,6 +681,15 @@
             .profile-links {
                 flex-direction: column;
                 align-items: flex-start;
+            }
+            
+            .footer-content {
+                flex-direction: column;
+                gap: 30px;
+            }
+            
+            .footer-section {
+                min-width: 100%;
             }
         }
         
@@ -632,230 +870,57 @@
             <p style="text-align: center; margin-bottom: 20px;" class="lang-en">To send a direct message, please use the secure form below.</p>
             <p style="text-align: center; margin-bottom: 20px;" class="lang-ar">لإرسال رسالة مباشرة، يرجى استخدام النموذج الآمن أدناه.</p>
             
-            <div class="form-placeholder">
-                <strong class="lang-en">Google Sites Integration:</strong>
-                <strong class="lang-ar">تكامل Google Sites:</strong>
-                <span class="lang-en"> Embed a custom-designed Google Form here for seamless message submission.</span>
-                <span class="lang-ar"> تضمين نموذج جوجل مخصص هنا لإرسال الرسائل بسلاسة.</span>
-                <p style="margin-top: 15px; font-size: 0.9em; color: var(--gray);">
-                    <span class="lang-en">(Form fields: Name, Email, Subject, Message)</span>
-                    <span class="lang-ar">(حقول النموذج: الاسم، البريد الإلكتروني، الموضوع، الرسالة)</span>
-                </p>
-            </div>
+            <form class="contact-form" action="mailto:w.abumandour@squ.edu.om,waleedmandour@gmail.com" method="post" enctype="text/plain">
+                <div class="form-group">
+                    <label for="name" class="lang-en">Your Name *</label>
+                    <label for="name" class="lang-ar">اسمك *</label>
+                    <input type="text" id="name" name="name" class="form-control" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="email" class="lang-en">Your Email Address *</label>
+                    <label for="email" class="lang-ar">عنوان بريدك الإلكتروني *</label>
+                    <input type="email" id="email" name="email" class="form-control" required>
+                    <p class="form-note lang-en">We'll use this to respond to your message</p>
+                    <p class="form-note lang-ar">سنتصل بك على هذا البريد للرد على رسالتك</p>
+                </div>
+                
+                <div class="form-group">
+                    <label for="subject" class="lang-en">Subject *</label>
+                    <label for="subject" class="lang-ar">الموضوع *</label>
+                    <input type="text" id="subject" name="subject" class="form-control" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="reason" class="lang-en">Reason for Contact *</label>
+                    <label for="reason" class="lang-ar">سبب التواصل *</label>
+                    <select id="reason" name="reason" class="form-control" required>
+                        <option value="" class="lang-en">Select a reason...</option>
+                        <option value="" class="lang-ar">اختر سببًا...</option>
+                        <option value="research" class="lang-en">Research Collaboration</option>
+                        <option value="research" class="lang-ar">تعاون بحثي</option>
+                        <option value="academic" class="lang-en">Academic Inquiry</option>
+                        <option value="academic" class="lang-ar">استفسار أكاديمي</option>
+                        <option value="media" class="lang-en">Media Request</option>
+                        <option value="media" class="lang-ar">طلب إعلامي</option>
+                        <option value="student" class="lang-en">Student Inquiry</option>
+                        <option value="student" class="lang-ar">استفسار طالب</option>
+                        <option value="other" class="lang-en">Other</option>
+                        <option value="other" class="lang-ar">أخرى</option>
+                    </select>
+                </div>
+                
+                <div class="form-group">
+                    <label for="message" class="lang-en">Your Message *</label>
+                    <label for="message" class="lang-ar">رسالتك *</label>
+                    <textarea id="message" name="message" class="form-control" required></textarea>
+                </div>
+                
+                <button type="submit" class="submit-btn lang-en">Send Message</button>
+                <button type="submit" class="submit-btn lang-ar">إرسال الرسالة</button>
+            </form>
         </section>
-
     </main>
-
-    <!-- Footer Section -->
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Footer - Dr. Waleed Mandour</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <style>
-        :root {
-            --primary: #0A1C3C;
-            --secondary: #20B2AA;
-            --accent: #1A5F7A;
-            --light: #f0f4f7;
-            --white: #ffffff;
-            --gray: #777;
-            --transition: all 0.3s ease;
-        }
-        
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background-color: #f9f9f9;
-            display: flex;
-            flex-direction: column;
-            min-height: 100vh;
-        }
-        
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-        
-        main {
-            flex: 1;
-            padding: 40px 0;
-        }
-        
-        /* Footer Styles */
-        footer {
-            background-color: var(--primary);
-            color: var(--white);
-            padding: 50px 0 25px;
-            margin-top: auto;
-        }
-        
-        .footer-content {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: space-between;
-            gap: 40px;
-            margin-bottom: 40px;
-        }
-        
-        .footer-section {
-            flex: 1;
-            min-width: 250px;
-        }
-        
-        .footer-section h3 {
-            color: var(--secondary);
-            margin-bottom: 20px;
-            font-size: 1.3em;
-            position: relative;
-            padding-bottom: 10px;
-        }
-        
-        .footer-section h3::after {
-            content: '';
-            position: absolute;
-            left: 0;
-            bottom: 0;
-            width: 40px;
-            height: 2px;
-            background-color: var(--secondary);
-        }
-        
-        .footer-section p {
-            line-height: 1.6;
-            margin-bottom: 15px;
-            color: rgba(255, 255, 255, 0.8);
-        }
-        
-        .footer-links {
-            list-style: none;
-        }
-        
-        .footer-links li {
-            margin-bottom: 10px;
-        }
-        
-        .footer-links a {
-            color: rgba(255, 255, 255, 0.8);
-            text-decoration: none;
-            transition: var(--transition);
-            display: flex;
-            align-items: center;
-        }
-        
-        .footer-links a i {
-            margin-right: 8px;
-            color: var(--secondary);
-            width: 20px;
-            text-align: center;
-        }
-        
-        .footer-links a:hover {
-            color: var(--secondary);
-            transform: translateX(5px);
-        }
-        
-        .contact-info {
-            list-style: none;
-        }
-        
-        .contact-info li {
-            margin-bottom: 15px;
-            display: flex;
-            align-items: flex-start;
-        }
-        
-        .contact-info i {
-            color: var(--secondary);
-            margin-right: 10px;
-            margin-top: 3px;
-            width: 20px;
-            text-align: center;
-        }
-        
-        .contact-info span {
-            color: rgba(255, 255, 255, 0.8);
-            line-height: 1.5;
-        }
-        
-        .social-links {
-            display: flex;
-            gap: 15px;
-            margin-top: 20px;
-        }
-        
-        .social-links a {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            width: 40px;
-            height: 40px;
-            background-color: rgba(255, 255, 255, 0.1);
-            border-radius: 50%;
-            color: var(--white);
-            text-decoration: none;
-            transition: var(--transition);
-        }
-        
-        .social-links a:hover {
-            background-color: var(--secondary);
-            transform: translateY(-3px);
-        }
-        
-        .footer-bottom {
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
-            padding-top: 25px;
-            text-align: center;
-        }
-        
-        .footer-bottom p {
-            color: rgba(255, 255, 255, 0.7);
-            font-size: 0.9em;
-        }
-        
-        .institutional-logos {
-            display: flex;
-            justify-content: center;
-            gap: 30px;
-            margin-top: 20px;
-            flex-wrap: wrap;
-        }
-        
-        .logo-placeholder {
-            width: 120px;
-            height: 60px;
-            background-color: rgba(255, 255, 255, 0.1);
-            border-radius: 5px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: rgba(255, 255, 255, 0.5);
-            font-size: 0.8em;
-            text-align: center;
-        }
-        
-        /* Responsive Design */
-        @media (max-width: 768px) {
-            .footer-content {
-                flex-direction: column;
-                gap: 30px;
-            }
-            
-            .footer-section {
-                min-width: 100%;
-            }
-        }
-    </style>
-</head>
-<body>
-    <main>
 
     <!-- Footer Section -->
     <footer>
@@ -863,8 +928,10 @@
             <div class="footer-content">
                 <!-- About Section -->
                 <div class="footer-section">
-                    <h3>About</h3>
-                    <p>Dr. Waleed Mandour is a dedicated researcher and educator specializing in Lexicography, Corpus Linguistics, and Natural Language Processing. His work focuses on developing innovative tools and methodologies for language analysis and education.</p>
+                    <h3 class="lang-en">About</h3>
+                    <h3 class="lang-ar">نبذة</h3>
+                    <p class="lang-en">Dr. Waleed Mandour is a dedicated researcher and educator specializing in Lexicography, Corpus Linguistics, and Natural Language Processing. His work focuses on developing innovative tools and methodologies for language analysis and education.</p>
+                    <p class="lang-ar">د. وليد مندور باحث ومتخصص في المعجميات، ولغويات المدونات النصية، ومعالجة اللغات الطبيعية. يركز عمله على تطوير أدوات ومنهجيات مبتكرة لتحليل اللغة والتعليم.</p>
                     <div class="social-links">
                         <a href="https://orcid.org/0000-0002-9262-5993" target="_blank" title="ORCID">
                             <i class="fab fa-orcid"></i>
@@ -883,42 +950,49 @@
                 
                 <!-- Quick Links Section -->
                 <div class="footer-section">
-                    <h3>Quick Links</h3>
+                    <h3 class="lang-en">Quick Links</h3>
+                    <h3 class="lang-ar">روابط سريعة</h3>
                     <ul class="footer-links">
                         <li>
                             <a href="index.html">
                                 <i class="fas fa-home"></i>
-                                <span>Home</span>
+                                <span class="lang-en">Home</span>
+                                <span class="lang-ar">الرئيسية</span>
                             </a>
                         </li>
                         <li>
                             <a href="research.html">
                                 <i class="fas fa-search"></i>
-                                <span>Research</span>
+                                <span class="lang-en">Research</span>
+                                <span class="lang-ar">البحث العلمي</span>
                             </a>
                         </li>
                         <li>
                             <a href="publications.html">
                                 <i class="fas fa-book-open"></i>
-                                <span>Publications</span>
+                                <span class="lang-en">Publications</span>
+                                <span class="lang-ar">المنشورات</span>
                             </a>
                         </li>
                         <li>
                             <a href="projects.html">
                                 <i class="fas fa-tasks"></i>
-                                <span>Projects</span>
+                                <span class="lang-en">Projects</span>
+                                <span class="lang-ar">المشاريع</span>
                             </a>
                         </li>
                         <li>
                             <a href="news.html">
                                 <i class="fas fa-newspaper"></i>
-                                <span>News & Events</span>
+                                <span class="lang-en">News & Events</span>
+                                <span class="lang-ar">الأخبار</span>
                             </a>
                         </li>
                         <li>
                             <a href="contact.html">
                                 <i class="fas fa-envelope"></i>
-                                <span>Contact</span>
+                                <span class="lang-en">Contact</span>
+                                <span class="lang-ar">اتصل بي</span>
                             </a>
                         </li>
                     </ul>
@@ -926,7 +1000,8 @@
                 
                 <!-- Contact Information -->
                 <div class="footer-section">
-                    <h3>Contact</h3>
+                    <h3 class="lang-en">Contact</h3>
+                    <h3 class="lang-ar">التواصل</h3>
                     <ul class="contact-info">
                         <li>
                             <i class="fas fa-envelope"></i>
@@ -937,10 +1012,15 @@
                         </li>
                         <li>
                             <i class="fas fa-university"></i>
-                            <span>
+                            <span class="lang-en">
                                 Sultan Qaboos University<br>
                                 Center for Preparatory Studies<br>
                                 Muscat, Oman
+                            </span>
+                            <span class="lang-ar">
+                                جامعة السلطان قابوس<br>
+                                مركز الدراسات التأسيسية<br>
+                                مسقط، عمان
                             </span>
                         </li>
                         <li>
@@ -956,13 +1036,19 @@
          
             <!-- Footer Bottom -->
             <div class="footer-bottom">
-                <p>&copy; 2025 Dr. Waleed Mandour. All rights reserved.</p>
-                <p>Designed with academic excellence in mind</p>
+                <p>&copy; 2025 Dr. Waleed Mandour. <span class="lang-en">All rights reserved.</span><span class="lang-ar">جميع الحقوق محفوظة.</span></p>
+                <p class="lang-en">Designed with academic excellence in mind</p>
+                <p class="lang-ar">مصمم بمراعاة التميز الأكاديمي</p>
+                
+                <div class="institutional-logos">
+                    <div class="logo-placeholder lang-en">SQU Logo</div>
+                    <div class="logo-placeholder lang-en">Research Logo</div>
+                    <div class="logo-placeholder lang-ar">شعار الجامعة</div>
+                    <div class="logo-placeholder lang-ar">شعار البحث</div>
+                </div>
             </div>
         </div>
     </footer>
-</body>
-</html>
 
     <script>
         // Language toggle functionality
