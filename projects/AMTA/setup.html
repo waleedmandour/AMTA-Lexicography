@@ -139,12 +139,13 @@
 
         /* ===== HEADER SECTION ===== */
         .header {
-            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
-            padding: 120px 0 60px;
+            background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
+            padding: 80px 0 40px;
             border-radius: 0 0 var(--radius-lg) var(--radius-lg);
             margin-bottom: 60px;
             position: relative;
             overflow: hidden;
+            border-bottom: 1px solid var(--border);
         }
 
         .header::before {
@@ -154,14 +155,14 @@
             left: 0;
             right: 0;
             bottom: 0;
-            background: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M11 18c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm48 25c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm-43-7c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm63 31c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM34 90c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm56-76c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM12 86c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm28-65c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm23-11c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-6 60c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm29 22c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zM32 63c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm57-13c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-9-21c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM60 91c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM35 41c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM12 60c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2z' fill='%23ffffff' fill-opacity='0.03' fill-rule='evenodd'/%3E%3C/svg%3E");
+            background: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M11 18c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm48 25c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm-43-7c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm63 31c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM34 90c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm56-76c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM12 86c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm28-65c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm23-11c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-6 60c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm29 22c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zM32 63c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm57-13c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-9-21c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM60 91c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM35 41c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM12 60c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2z' fill='%231a237e' fill-opacity='0.03' fill-rule='evenodd'/%3E%3C/svg%3E");
         }
 
         .header-content {
             position: relative;
             z-index: 1;
             text-align: center;
-            color: white;
+            color: var(--text-dark);
             max-width: 800px;
             margin: 0 auto;
         }
@@ -169,8 +170,8 @@
         /* ===== ENHANCED APP LOGO SECTION ===== */
         .app-logo-container {
             position: relative;
-            width: 320px;
-            height: 320px;
+            width: 400px;
+            height: 400px;
             margin: 0 auto 40px;
             display: flex;
             align-items: center;
@@ -183,24 +184,24 @@
             height: 100%;
             position: relative;
             border-radius: 30px;
-            background: linear-gradient(135deg, rgba(255, 255, 255, 0.2) 0%, rgba(255, 255, 255, 0.1) 100%);
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.95) 0%, rgba(255, 255, 255, 0.9) 100%);
             backdrop-filter: blur(10px);
-            border: 2px solid rgba(255, 255, 255, 0.4);
+            border: 2px solid rgba(26, 35, 126, 0.1);
             box-shadow: 
-                0 15px 35px rgba(0, 0, 0, 0.2),
+                var(--shadow-lg),
                 0 0 0 1px rgba(255, 255, 255, 0.1) inset,
-                0 0 30px rgba(59, 130, 246, 0.3);
-            padding: 15px;
+                0 0 30px rgba(26, 35, 126, 0.1);
+            padding: 20px;
             transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
         }
 
         .app-logo-frame:hover {
             transform: scale(1.05) rotate(3deg);
-            border-color: rgba(255, 255, 255, 0.6);
+            border-color: rgba(26, 35, 126, 0.2);
             box-shadow: 
-                0 20px 45px rgba(0, 0, 0, 0.3),
+                0 20px 45px rgba(0, 0, 0, 0.15),
                 0 0 0 1px rgba(255, 255, 255, 0.2) inset,
-                0 0 40px rgba(59, 130, 246, 0.4);
+                0 0 40px rgba(26, 35, 126, 0.15);
         }
 
         .app-logo-img {
@@ -208,22 +209,22 @@
             height: 100%;
             object-fit: contain;
             border-radius: 20px;
-            filter: drop-shadow(0 5px 15px rgba(0, 0, 0, 0.3));
+            filter: drop-shadow(0 5px 15px rgba(0, 0, 0, 0.1));
             transition: filter 0.3s ease;
         }
 
         .app-logo-frame:hover .app-logo-img {
-            filter: drop-shadow(0 8px 25px rgba(0, 0, 0, 0.4));
+            filter: drop-shadow(0 8px 25px rgba(0, 0, 0, 0.2));
         }
 
         /* Decorative elements around logo */
         .app-logo-container::before {
             content: '';
             position: absolute;
-            width: 200px;
-            height: 200px;
+            width: 250px;
+            height: 250px;
             border-radius: 40px;
-            background: linear-gradient(135deg, rgba(59, 130, 246, 0.2) 0%, rgba(147, 51, 234, 0.2) 100%);
+            background: linear-gradient(135deg, rgba(26, 35, 126, 0.1) 0%, rgba(57, 73, 171, 0.1) 100%);
             animation: rotate 20s linear infinite;
             z-index: -1;
         }
@@ -231,8 +232,8 @@
         .app-logo-container::after {
             content: '';
             position: absolute;
-            width: 220px;
-            height: 220px;
+            width: 270px;
+            height: 270px;
             border-radius: 50px;
             background: linear-gradient(135deg, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0.05) 100%);
             animation: rotate 25s linear infinite reverse;
@@ -273,6 +274,21 @@
             100% { background-position: 200% 200%; }
         }
 
+        .header h1 {
+            color: var(--primary);
+            font-size: 42px;
+            font-weight: 800;
+            margin-bottom: 20px;
+        }
+
+        .header-subtitle {
+            color: var(--text-muted);
+            font-size: 20px;
+            font-weight: 400;
+            max-width: 600px;
+            margin: 0 auto;
+            line-height: 1.5;
+        }
 
         /* ===== API KEYS SECTION ===== */
         .section {
@@ -844,8 +860,8 @@
             }
             
             .app-logo-container {
-                width: 320px;
-                height: 320px;
+                width: 400px;
+                height: 400px;
             }
         }
 
@@ -855,7 +871,7 @@
             }
             
             .header {
-                padding: 100px 0 40px;
+                padding: 60px 0 30px;
             }
             
             .section-title {
@@ -881,11 +897,16 @@
             .troubleshooting-grid {
                 grid-template-columns: 1fr;
             }
+            
+            .app-logo-container {
+                width: 350px;
+                height: 350px;
+            }
         }
 
         @media (max-width: 480px) {
             .header h1 {
-                font-size: 28px;
+                font-size: 32px;
             }
             
             .header-subtitle {
@@ -925,17 +946,14 @@
         <button id="lang-ar">العربية</button>
     </div>
 
-    
-
     <!-- Header Section -->
     <header class="header">
         <div class="container">
             <div class="header-content">
-                <!-- Awesome App Logo with Visual Effects -->
+                <!-- Enhanced App Logo -->
                 <div class="app-logo-container">
-                    <div class="app-logo">
-                        <div class="logo-glow"></div>
-                        <img src="images/AMTA.png" alt="AMTA Lexicography Assistant Logo">
+                    <div class="app-logo-frame">
+                        <img src="images/AMTA.png" alt="AMTA Lexicography Assistant Logo" class="app-logo-img">
                     </div>
                 </div>
                 
@@ -951,20 +969,6 @@
             </div>
         </div>
     </header>
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-WW4M0NCF1V"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-WW4M0NCF1V');
-</script>
-    
-<body>
-    <div class="language-toggle">
-        <button id="lang-en" class="active">English</button>
-        <button id="lang-ar">العربية</button>
-    </div>
 
     <div class="container">
         <!-- Introduction -->
@@ -1151,48 +1155,19 @@
                 واجهة مستخدم التطبيق موجودة بالكامل داخل شريط جانبي مخصص في Google Sheets، مما يوفر جميع عناصر التحكم 
                 وتحديثات الحالة في الوقت الفعلي لسير العمل المعجمي.
             </p>
+        </div>
 
-           
-   <!-- 5. FREQUENTLY ASKED QUESTIONS (FAQ) -->
-  <h2>❓ 5. Frequently Asked Questions (FAQ)</h2>
-  
-  <div class="faq-section">
-      <div class="faq-item">
-          <div class="faq-question">Q: Why do I need to enter my own API keys?</div>
-          <div class="faq-answer">
-              <p>A: The AMTA Assistant is an orchestration tool, not a service provider. We require you to use your own keys for two primary reasons: **Cost Control** (you manage your usage and billing) and **Data Privacy** (your keys are stored only by you and the requests are made directly from your Google account, not routed through a third-party server).</p>
-          </div>
-      </div>
-
-      <div class="faq-item">
-          <div class="faq-question">Q: Is my data sent to the developer's server?</div>
-          <div class="faq-answer">
-              <p>A: **Absolutely not.** Your data (the terms, the output, and your API keys) are never transmitted to the developer's server. Your keys are stored in <code>PropertiesService.getUserProperties()</code>, and all API calls are made directly from your Apps Script instance to the third-party providers (Gemini, SerpApi, etc.).</p>
-          </div>
-      </div>
-
-      <div class="faq-item">
-          <div class="faq-question">Q: Why is the process so slow, even for one term?</div>
-          <div class="faq-answer">
-              <p>A: The pipeline executes five distinct phases, which involve sequential communication with five different external APIs and two internal statistical calculations. The entire process is designed for **accuracy over speed**. The system includes necessary pauses (<code>Utilities.sleep()</code>) to prevent hitting external API rate limits, which can often be as low as 1 request per second.</p>
-          </div>
-      </div>
-
-      <div class="faq-item">
-          <div class="faq-question">Q: What if I only want to run Phase 4 (Content Generation)?</div>
-          <div class="faq-answer">
-              <p>A: You can! Use the individual Phase buttons in the sidebar. However, for Phase 4 to work, the data in **Columns E, F, G, H** (Context Enrichment) must already be populated, as the RAG process relies on having source material to achieve high quality and academic validity.</p>
-          </div>
-      </div>
-
-      <div class="faq-item">
-          <div class="faq-question">Q: Why are there different export options (XML/JSON)?</div>
-          <div class="faq-answer">
-              <p>A: The final export is tailored to different use cases. **XML** is generated in a structure compliant with Lexonomy for professional dictionary writing. **JSON/CSV** are provided for general data analysis, data visualization, or integration into other computational tools.</p>
-          </div>
-      </div>
-  </div>
-
+        <!-- 5. Frequently Asked Questions (FAQ) - HEADING ONLY -->
+        <div class="section">
+            <div class="section-header">
+                <div class="section-icon">
+                    <i class="fas fa-question-circle"></i>
+                </div>
+                <h2 class="section-title lang-en">Frequently Asked Questions (FAQ)</h2>
+                <h2 class="section-title lang-ar">الأسئلة الشائعة</h2>
+            </div>
+            <!-- FAQ content removed as requested -->
+        </div>
 
         <!-- 5. Troubleshooting -->
         <div class="troubleshooting-section">
@@ -1358,7 +1333,7 @@
             });
 
             // Logo animation on hover
-            const logo = document.querySelector('.app-logo');
+            const logo = document.querySelector('.app-logo-frame');
             if (logo) {
                 logo.addEventListener('mouseenter', function() {
                     this.style.transform = 'translateY(-10px) rotateX(5deg) rotateY(5deg) scale(1.05)';
